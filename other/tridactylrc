@@ -1,0 +1,22 @@
+" For use with the tridactyl Firefox extension
+
+" General Settings
+set update.checkintervalsecs 86400
+set update.lastchecktime 1592415361033
+set update.lastnaggedversion 1.17.1
+set configversion 1.9
+set putfrom selection
+" set yankto both
+
+" Binds
+bind / fillcmdline find
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+" Autocmds
+autocmd DocStart amy.cpt.gtp.f5net.com mode ignore
+autocmd DocStart portal.azure.com mode ignore
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl
