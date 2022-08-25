@@ -1,4 +1,4 @@
-# ~/.mac_functions
+# ~/.mac_functions.bash
 # My function list is getting too involved for .bash_aliases
 
 # Open pcap in new Wireshark instance

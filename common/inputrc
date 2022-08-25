@@ -1,0 +1,10 @@
+set mark-symlinked-directories on
+set bind-tty-special-chars off
+
+#"\C-w":backward-kill-word        # delete to previous word boundary
+# delete to previous whitespace
+#"\C-w":unix-word-rubout 
+
+# delete to previous whitespace
+"\C-w":shell-backward-kill-word   
+

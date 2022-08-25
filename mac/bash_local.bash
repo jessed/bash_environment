@@ -1,8 +1,10 @@
 # ~/.bash_local.bash
 
 # direnv integration
-eval "$(direnv hook bash)"
-export DIRENV_LOG_FORMAT=   # suppress direnv status messages
+if [[ -n $(which direnv) ]]; then
+  eval "$(direnv hook bash)"
+  export DIRENV_LOG_FORMAT=   # suppress direnv status messages
+fi
 
 # JAVA variables
 export JAVA_HOME=$(/usr/libexec/java_home)

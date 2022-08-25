@@ -109,7 +109,7 @@ mk_prompt () {
   # TODO: This should be changed to use direnv, not a bash function
   update_go
 }
-export PROMPT_COMMAND=mk_prompt
+export PROMPT_COMMAND="history -a; mk_prompt"
 
 
 

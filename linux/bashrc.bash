@@ -104,7 +104,7 @@ mk_prompt () {
   # TODO: This should be changed to use direnv, not a bash function
   update_go
 }
-PROMPT_COMMAND=mk_prompt
+export PROMPT_COMMAND="history -a; mk_prompt"
 
 
 # enable programmable completion features (you don't need to enable

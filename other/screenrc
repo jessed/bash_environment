@@ -1,0 +1,67 @@
+multiuser     off
+vbell         off
+bell_msg      ""
+autodetach    on
+defscrollback 30000
+altscreen     on
+
+termcapinfo   screen|xterm|xterms|xs|rxvt ti@:te@
+#large xterm buffer
+termcapinfo xterm* OL=10000
+#term          rxvt
+
+log           on
+logtstamp     on
+logfile       /home/jessed/.screen/logs/%n-%Y-%m-%dT%0c:%s.log
+logtstamp     string '^[E-- %n:%t -- timestamp -- %Y-%m-%dT%0c:%s --^[E'
+logtstamp     after 120
+
+
+setenv        SSH_AUTH_SOCK $HOME/.ssh/screen-ssh-agent
+#setenv        TERM=xterm
+#escape        ^ee
+#defescape     ^ee
+
+
+#Format: screen -t <title> <order> <command>
+#screen -a -t FAH 0 /home/jessed/local/bin/start_fah.bash
+screen -a -t M0 0
+screen -a -t M1 1
+screen -a -t M2 2
+screen -a -t M3 3
+#screen -a -t M4 4
+#screen -a -t T1 5
+#screen -a -t T2 6
+#screen -a -t T3 7
+#screen -a -t T4 8 
+#screen -a -t Calc 9  /usr/bin/calc
+#screen -a -t SSH 10 ssh-agent -a $SSH_AUTH_SOCK
+
+#caption always '%{= kw}%?%-Lw%?%{kr}%n%f %t%{= kw}%?%+Lw'
+#caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+hardstatus alwayslastline
+
+#hardstatus string '%{= kg}%{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%{r})%{w}%?%+Lw%?%{g}%-030=[%{w}(%l) %c:%s%{g}]%{= }'
+#hardstatus string '%{= kg}%{= kw}%?%-w%?%{r}(%{W}%n %t%{r})%{w}%?%+w%?%{g}%-09=[%{w}%c%{g}]%{= }'
+# remove clock
+hardstatus string '%{= kg}%{= kw}%?%-w%?%{r}(%{W}%n %t%{r})%{w}%?%+w%?%{g}'
+
+
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+## Handstatus line definition
+# %{= kG}[      - black background, bright green open-bracket
+# %{G}H %{g}][  - Bright Green Hostname, normal green close-bracket, open-bracket
+# %=            - Clear color attributes (return to defaults)
+# %{= kw}       - change to black background, white foreground
+# %?            - display the following only if it expands to a non-empty string
+# %-Lw          - Center text in the middle of section (starting here)
+# %?            - display the following only if it expands to a non-empty string
+# %{r}(%{W}%n*  - red, paranthesis, window number, (asterisk?)
+# %f%t%?(%u)    - window flags, window title, (other users - only if there are more) 
+# %?%{r})       - If non-empty string, red close-paranthesis
+# %{w}          - white, All window numbers and names
+# %?%+Lw%?      - if non-empty string, center text to end of section (ending here)
+# %?%= %{g}][   - if non-empty string, clear attributes, green close-bracket
+# %{B} %d/%m    - bright blue, day-of-month, month-number
+# %{W}%c %{g}]  - bright white, current time (24hr), green, close-bracket
